@@ -21,6 +21,7 @@ class ModelSetup:
 
         self.openrouter_api_key = os.getenv('OPENROUTER_API_KEY')
         self.google_api_key = os.getenv('GOOGLE_API_KEY')
+        self.imagegen_api_key = os.getenv("IMAGEGEN_API_KEY")
 
         if self.verbose:
             self._check_keys()
@@ -35,6 +36,10 @@ class ModelSetup:
             print(f"✅ Google API Key exists and begins with: {self.google_api_key[:8]}")
         else:
             print("⚠️ Google API Key not set")
+        if self.imagegen_api_key:
+            print(f"✅ Imagegen API Key exists and begins with: {self.imagegen_api_key[:8]}")
+        else:
+            print("⚠️ Imagegen API Key not set")
             
     def _check_const(self):
         model_keys = ["OPENAI_MODEL", "DEEPSEEK_MODEL", "GEMINI_MODEL", "OPENROUTER_URL"]
